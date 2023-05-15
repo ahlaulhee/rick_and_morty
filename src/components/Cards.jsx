@@ -1,8 +1,10 @@
+import React from "react";
 import Card from "./Card";
+import "./card-styles.css";
 
-export default function Cards({ characters }) {
+const Cards = ({ characters }) => {
   return (
-    <div>
+    <div className="container">
       {characters.map((char) => (
         <Card
           key={char.id}
@@ -17,4 +19,5 @@ export default function Cards({ characters }) {
       ))}
     </div>
   );
-}
+};
+export default Cards;

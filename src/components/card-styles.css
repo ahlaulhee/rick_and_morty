@@ -1,0 +1,94 @@
+/* card-styles.css */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  flex: 0 0 calc(25% - 16px);
+  /* background-color: #f8f9fa; */
+  background-color: #4b3f72;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% - 16px);
+  }
+}
+
+.image {
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.closeBtn {
+  width: 100%;
+  background-color: red;
+  border-radius: 8px;
+  border-color: #b3001b;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.searchInput {
+  padding: 8px 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.searchInput:focus {
+  border-color: #4b3f72;
+}
+
+.searchBtn {
+  padding: 8px 16px;
+  background-color: #4b3f72;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: #d7dedc;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.searchBtn:hover {
+  background-color: #4b3f72;
+}
+
+h3 {
+  text-align: center;
+  font-variant: small-caps;
+  font-size: 20px;
+  color: #d7dedc;
+}
+
+p {
+  color: #d7dedc;
+}

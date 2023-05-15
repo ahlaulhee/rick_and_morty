@@ -1,13 +1,19 @@
-export default function Card(props) {
+import React from "react";
+import "./card-styles.css";
+
+const Card = (props) => {
   return (
-    <div>
-      <button onClick={props.onClose}>X</button>
-      <h2>{props.name}</h2>
-      <h2>{props.status}</h2>
-      <h2>{props.species}</h2>
-      <h2>{props.gender}</h2>
-      <h2>{props.origin}</h2>
-      <img src={props.image} alt="" />
+    <div className="card">
+      <h3>{props.name}</h3>
+      <p>Status: {props.status}</p>
+      <p>Specie: {props.species}</p>
+      <p>Gender: {props.gender}</p>
+      <p>{props.origin !== "unknown" ? `Origen: ${props.origin}` : ""}</p>
+      <img className="image" src={props.image} alt="" />
+      <button className="closeBtn" onClick={props.onClose}>
+        X
+      </button>
     </div>
   );
-}
+};
+export default Card;
