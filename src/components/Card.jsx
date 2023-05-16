@@ -10,7 +10,7 @@ const Card = (props) => {
       <p>Gender: {props.gender}</p>
       <p>{props.origin !== "unknown" ? `Origen: ${props.origin}` : ""}</p>
       <img className="image" src={props.image} alt="" />
-      <button className="closeBtn" onClick={props.onClose}>
+      <button className="closeBtn" onClick={() => props.onClose(props.id)}>
         X
       </button>
     </div>

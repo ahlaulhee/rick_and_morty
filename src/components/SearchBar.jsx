@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./card-styles.css";
 
 const SearchBar = (props) => {
+  const [id, setId] = useState("");
+  const handleChange = (event) => {
+    setId(event.target.value);
+  };
   return (
-    <div className="searchBar">
-      <input className="searchInput" type="search" />
-      <button className="searchBtn" onClick={props.onSearch}>
+    <div>
+      <input
+        className="searchInput"
+        onChange={(e) => handleChange(e)}
+        value={id}
+        type="search"
+      />
+      <button className="searchBtn" onClick={() => props.onSearch(id)}>
         Agregar
       </button>
     </div>
