@@ -15,6 +15,7 @@ function App() {
           !(characters.find((char) => char.id === Number(id)) !== undefined)
         ) {
           setCharacters((oldChars) => [...oldChars, data]);
+          // setCharacters([...characters, data]);
         } else {
           window.alert(
             "¡No hay personajes con este ID o ya se encuentra en la lista!"
