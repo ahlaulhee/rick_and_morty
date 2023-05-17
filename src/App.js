@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import Cards from "./components/Cards.jsx";
-import Nav from "./components/Nav.jsx";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Detail from "./components/Detail";
+import Nav from "./components/Nav";
+import Error from "./components/Error";
 import axios from "axios";
 
 function App() {
   const [characters, setCharacters] = useState([]);
 
-  function onSearch(id) {
+  const onSearch = (id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
         if (
@@ -15,7 +19,6 @@ function App() {
           !(characters.find((char) => char.id === Number(id)) !== undefined)
         ) {
           setCharacters((oldChars) => [...oldChars, data]);
-          // setCharacters([...characters, data]);
         } else {
           window.alert(
             "¡No hay personajes con este ID o ya se encuentra en la lista!"
@@ -25,33 +28,30 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-  function onClose(id) {
+  const onClose = (id) => {
     setCharacters(characters.filter((element) => element.id !== Number(id)));
-  }
-
-  // const onSearch = (id) => {
-  //   const newCharacter = {
-  //     id: 1,
-  //     name: "Rick Sanchez",
-  //     status: "Alive",
-  //     species: "Human",
-  //     gender: "Male",
-  //     origin: {
-  //       name: "Earth (C-137)",
-  //       url: "https://rickandmortyapi.com/api/location/1",
-  //     },
-  //     image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-  //   };
-
-  //   setCharacters([...characters, newCharacter]);
-  // };
-
+  };
+  useEffect(() => {}, [characters]);
   return (
     <div className="App">
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} onClose={onClose} />
+      <Routes>
+        {/* <Route
+          path="/home"
+          element={<Home />}
+          chars={characters}
+          onCloseFunc={onClose}
+        /> */}
+        <Route path="*" element={<Error />} />
+        <Route
+          path="/home"
+          element={<Home chars={characters} onCloseFunc={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
     </div>
   );
 }

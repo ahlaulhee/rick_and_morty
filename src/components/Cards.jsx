@@ -5,7 +5,7 @@ import "./card-styles.css";
 const Cards = ({ characters, onClose }) => {
   return (
     <div className="container">
-      {characters.map((char) => (
+      {characters?.map((char) => (
         <Card
           key={char.id}
           id={char.id}
