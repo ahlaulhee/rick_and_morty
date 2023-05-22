@@ -1,15 +1,34 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Detail from "./components/Detail";
 import Nav from "./components/Nav";
 import Error from "./components/Error";
 import axios from "axios";
+import Form from "./components/Form";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+  const EMAIL = "ahlaulhe@gmail.com";
+  const PASSWORD = "123456";
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const login = (userData) => {
+    if (userData.password === PASSWORD && userData.email === EMAIL) {
+      setAccess(true);
+      navigate("/home");
+    }
+  };
+
+  const logout = () => {
+    setAccess(false);
+    navigate("/");
+  };
 
   const onSearch = (id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`)
@@ -33,10 +52,12 @@ function App() {
   const onClose = (id) => {
     setCharacters(characters.filter((element) => element.id !== Number(id)));
   };
-  useEffect(() => {}, [characters]);
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access, characters]);
   return (
     <div className="App">
-      <Nav onSearch={onSearch} />
+      {location.pathname !== "/" && <Nav logout={logout} onSearch={onSearch} />}
       <Routes>
         {/* <Route
           path="/home"
@@ -45,6 +66,7 @@ function App() {
           onCloseFunc={onClose}
         /> */}
         <Route path="*" element={<Error />} />
+        <Route path="/" element={<Form login={login} />} />
         <Route
           path="/home"
           element={<Home chars={characters} onCloseFunc={onClose} />}
