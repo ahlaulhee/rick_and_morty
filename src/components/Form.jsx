@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./form.css";
+import validate from "./validation";
+import logo from "../assets/rickandmortylogo.png";
 
 const Form = ({ login }) => {
   const [userData, setUserData] = useState({
@@ -12,18 +15,41 @@ const Form = ({ login }) => {
       ...userData,
       [e.target.name]: e.target.value,
     });
+    // setErrors(validate(userData));
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     login(userData);
   };
+
+  useEffect(() => {
+    setErrors(validate(userData));
+  }, [userData]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="">Email:</label>
-      <input type="text" value={userData.email} onChange={handleChange} />
-      <label htmlFor="">Password:</label>
-      <input type="text" value={userData.password} onChange={handleChange} />
-      <button>Submit</button>
+    <form className="form" onSubmit={handleSubmit}>
+      {/* <h1>Login</h1> */}
+      <img src={logo} alt="Logo" />
+      {/* <label htmlFor="">Email:</label> */}
+      <input
+        name="email"
+        placeholder="Email"
+        type="text"
+        value={userData.email}
+        onChange={handleChange}
+      />
+      {errors.email}
+      {/* <label htmlFor="">Password:</label> */}
+      <input
+        name="password"
+        placeholder="Password"
+        type="password"
+        value={userData.password}
+        onChange={handleChange}
+      />
+      {errors.password}
+      <button type="submit">Submit</button>
     </form>
   );
 };

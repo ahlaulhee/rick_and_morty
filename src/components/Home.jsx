@@ -6,7 +6,6 @@ import Cards from "./Cards.jsx";
 // import { useLocation } from "react-router-dom";
 
 const Home = ({ chars, onCloseFunc }) => {
-  console.log(chars);
   //   const onSearch = (id) => {
   //     axios(`https://rickandmortyapi.com/api/character/${id}`)
   //       .then(({ data }) => {

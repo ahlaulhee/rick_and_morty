@@ -9,6 +9,7 @@ const SearchBar = (props) => {
   return (
     <div>
       <input
+        placeholder="1-826"
         className="searchInput"
         onChange={(e) => handleChange(e)}
         value={id}

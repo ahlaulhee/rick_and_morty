@@ -44,12 +44,32 @@
   margin-bottom: 5px;
 }
 
+.btnContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.favBtn {
+  width: 5rem;
+  height: 2.5rem;
+  background-color: rgb(0, 161, 0);
+  border-radius: 8px;
+  border-color: #086600;
+  font-size: 15px;
+  font-weight: bold;
+}
+.favBtn:hover {
+  background-color: #086600;
+  border-color: rgb(0, 161, 0);
+  color: white;
+}
+
 .closeBtn {
-  width: 100%;
+  width: 5rem;
+  height: 2.5rem;
   background-color: red;
   border-radius: 8px;
   border-color: #b3001b;
-  color: white;
   font-size: 15px;
   font-weight: bold;
 }

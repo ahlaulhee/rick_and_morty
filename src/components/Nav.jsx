@@ -10,6 +10,9 @@ const Nav = (props) => {
         <NavLink to="/home">Home</NavLink>
       </button>
       <button className="randomBtn">
+        <NavLink to="/favorites">Favorites</NavLink>
+      </button>
+      <button className="randomBtn">
         <NavLink to="/about">About</NavLink>
       </button>
       <button

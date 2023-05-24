@@ -8,15 +8,20 @@ import Nav from "./components/Nav";
 import Error from "./components/Error";
 import axios from "axios";
 import Form from "./components/Form";
+import Favorites from "./components/Favorites";
+import { useDispatch } from "react-redux";
+import { removeFav } from "./redux/actions";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+
   const [access, setAccess] = useState(false);
   const EMAIL = "ahlaulhe@gmail.com";
   const PASSWORD = "123456";
 
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const login = (userData) => {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
@@ -51,6 +56,7 @@ function App() {
 
   const onClose = (id) => {
     setCharacters(characters.filter((element) => element.id !== Number(id)));
+    dispatch(removeFav(id));
   };
   useEffect(() => {
     !access && navigate("/");
@@ -70,6 +76,10 @@ function App() {
         <Route
           path="/home"
           element={<Home chars={characters} onCloseFunc={onClose} />}
+        />
+        <Route
+          path="/favorites"
+          element={<Favorites onCloseFunc={onClose} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
