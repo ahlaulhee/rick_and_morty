@@ -16,7 +16,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const [access, setAccess] = useState(false);
-  const EMAIL = "ahlaulhe@gmail.com";
+  const EMAIL = "admin@admin.com";
   const PASSWORD = "123456";
 
   const location = useLocation();

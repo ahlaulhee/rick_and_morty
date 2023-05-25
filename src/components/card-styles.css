@@ -149,3 +149,27 @@ p {
   font-size: 20px;
   color: #d7dedc;
 }
+
+.select-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+}
+
+.select {
+  background-color: #4b3f72;
+  border: 1px solid #d7dedc;
+  border-radius: 5px;
+  color: #d7dedc;
+  font-size: 1rem;
+  margin: 0.5rem !important;
+  padding: 0.5rem 2rem 0.5rem 1rem !important;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.select:hover {
+  border-color: #6a6a6c;
+}
