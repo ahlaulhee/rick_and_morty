@@ -1,0 +1,175 @@
+/* card-styles.css */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  flex: 0 0 calc(25% - 16px);
+  /* background-color: #f8f9fa; */
+  background-color: #4b3f72;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% - 16px);
+  }
+}
+
+.image {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.favBtn {
+  width: 5rem;
+  height: 2.5rem;
+  background-color: rgb(0, 161, 0);
+  border-radius: 8px;
+  border-color: #086600;
+  font-size: 15px;
+  font-weight: bold;
+}
+.favBtn:hover {
+  background-color: #086600;
+  border-color: rgb(0, 161, 0);
+  color: white;
+}
+
+.closeBtn {
+  width: 5rem;
+  height: 2.5rem;
+  background-color: red;
+  border-radius: 8px;
+  border-color: #b3001b;
+  font-size: 15px;
+  font-weight: bold;
+}
+.closeBtn:hover {
+  background-color: #b3001b;
+  border-color: red;
+  color: white;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.searchInput {
+  padding: 8px 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.searchInput:focus {
+  border-color: #4b3f72;
+}
+
+.searchBtn {
+  padding: 8px 16px;
+  background-color: #4b3f72;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: #d7dedc;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.searchBtn:hover {
+  background-color: #4b3f72;
+}
+
+.randomBtn {
+  padding: 8px 16px;
+  background-color: #4b3f72;
+  border: none;
+  border-radius: 4px;
+  color: #d7dedc;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+h3 {
+  text-align: center;
+  font-variant: small-caps;
+  font-size: 20px;
+  color: #d7dedc;
+}
+
+p {
+  color: #d7dedc;
+}
+
+.error {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #db504a;
+  padding: 10px;
+  margin: 5px 800px 5px 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.errorMessage {
+  font-size: 20px;
+  color: #d7dedc;
+}
+
+.select-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+}
+
+.select {
+  background-color: #4b3f72;
+  border: 1px solid #d7dedc;
+  border-radius: 5px;
+  color: #d7dedc;
+  font-size: 1rem;
+  margin: 0.5rem !important;
+  padding: 0.5rem 2rem 0.5rem 1rem !important;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.select:hover {
+  border-color: #6a6a6c;
+}
