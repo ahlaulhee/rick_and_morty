@@ -1,5 +1,4 @@
 import { ADD_FAV, REMOVE_FAV, FILTER_CARDS, ORDER_CARDS } from "./actions";
-
 const initialState = {
   allCharacters: [],
   favoriteCharacters: [],
@@ -8,19 +7,25 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAV:
-      console.log(action.payload);
+      // console.log(action.payload);
+      // return {
+      //   ...state,
+      //   favoriteCharacters: [...state.favoriteCharacters, action.payload],
+      //   allCharacters: [...state.favoriteCharacters, action.payload],
+      // };
       return {
         ...state,
-        favoriteCharacters: [...state.favoriteCharacters, action.payload],
-        allCharacters: [...state.favoriteCharacters, action.payload],
+        favoriteCharacters: action.payload,
+        allCharacters: action.payload,
       };
     case REMOVE_FAV:
-      return {
-        ...state,
-        favoriteCharacters: state.favoriteCharacters.filter(
-          (character) => character.id !== action.payload
-        ),
-      };
+      // return {
+      //   ...state,
+      //   favoriteCharacters: state.favoriteCharacters.filter(
+      //     (character) => character.id !== action.payload
+      //   ),
+      // };
+      return { ...state, favoriteCharacters: action.payload };
     case FILTER_CARDS:
       if (action.payload === "All")
         return { ...state, favoriteCharacters: state.allCharacters };

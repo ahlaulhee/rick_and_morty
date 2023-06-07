@@ -25,18 +25,20 @@ const Favorites = (props) => {
     console.log(favorites);
   };
   return (
-    <div className="select-container">
-      <select className="select" onChange={handleOrder}>
-        <option value="A">Ascendent</option>
-        <option value="D">Descendent</option>
-      </select>
-      <select className="select" onChange={handleFilter}>
-        <option value="All">All</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="unknown">Unknown</option>
-      </select>
+    <div>
+      <div className="select-container">
+        <select className="select" onChange={handleOrder}>
+          <option value="A">Ascendent</option>
+          <option value="D">Descendent</option>
+        </select>
+        <select className="select" onChange={handleFilter}>
+          <option value="All">All</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Genderless">Genderless</option>
+          <option value="unknown">Unknown</option>
+        </select>
+      </div>
       <div className="container">
         {favorites?.map((char) => (
           <Card

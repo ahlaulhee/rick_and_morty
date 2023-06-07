@@ -16,18 +16,27 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const [access, setAccess] = useState(false);
-  const EMAIL = "admin@admin.com";
-  const PASSWORD = "123456";
+  // const EMAIL = "admin@admin.com";
+  // const PASSWORD = "admins";
 
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // const login = (userData) => {
+  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
+  //     setAccess(true);
+  //     navigate("/home");
+  //   }
+  // };
+
   const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate("/home");
-    }
+    axios(
+      `http://localhost:3001/rickandmorty/login/?email=${userData.email}&password=${userData.password}`
+    ).then((res) => {
+      setAccess(res.data.access);
+      res.data.access && navigate("/home");
+    });
   };
 
   const logout = () => {
